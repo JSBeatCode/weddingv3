@@ -72,7 +72,9 @@ export default {
             } else {
                 const result = state.originList.filter((a,i)=>{
                     if (a.name.includes(val) === true 
-                    || a.address.includes(val) === true){
+                    || a.address.includes(val) === true
+                    || a.hall.includes(val) === true
+                    ){
                         return a;
                     }
                 });
