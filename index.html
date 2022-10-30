@@ -13,14 +13,72 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- <link href="./src/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
+
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=0hdbs2vkgg"></script>
+
     <meta name="theme-color" content="#7952b3">
-    <script type="module" crossorigin src="/assets/index.25a9168c.js"></script>
-    <link rel="stylesheet" href="/assets/index.1b313684.css">
+    <script type="module" crossorigin src="/assets/index.6a8cc2c8.js"></script>
+    <link rel="stylesheet" href="/assets/index.31d79be0.css">
   </head>
   <body>
+    <!-- <div id="map" style="width:100%;height:50rem;"></div> -->
+
     <div id="app"></div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <!-- <script src="./src/assets/bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> -->
+    <!-- <script>
+      var position = new naver.maps.LatLng(37.3595704, 127.105399);
+
+      var mapOptions = {
+          center: position,
+          zoom: 10
+      };
+      
+      var map = new naver.maps.Map('map', mapOptions);
+
+      
+      var marker = new naver.maps.Marker({
+          position: position,
+          title: '임시마커',
+          map: map,
+          icon: {
+              url: 'marker.png',
+              size: new naver.maps.Size(40,40),
+              scaledSize: new naver.maps.Size(40, 40),        
+              origin: new naver.maps.Point(0, 0),
+              //anchor: new naver.maps.Point(11, 35)
+          }
+          /*
+          */
+          
+      });
+
+      var infoWindow = new naver.maps.InfoWindow({
+          // content: '<div style="width:150px;text-align:center;padding:10px;">The Letter is <b>"'+ 'test' +'"</b>.</div>'
+          content: '<div>The Letter.</div>',
+          maxWidth: 200,
+          backgroundColor: "#eee",
+          //borderColor: "#2db400",
+          //borderWidth: 5,
+          anchorSize: new naver.maps.Size(0, 0),
+          anchorSkew: true,
+          anchorColor: "#eee",
+      });
+
+      infoWindow.open(map, marker);
+
+      // 클릭이벤트를 적용하여 경고창으로 위도 경도를 봅니다.
+      function getLatLang() {
+          naver.maps.Event.addListener(map, 'click', function(e){
+              // 지도를 클릭하면 아래 내용이 실행됩니다.
+              alert(e.coord.lat() + ', ' + e.coord.lng());
+              // e 는 클릭시 넘어오는 이벤트 (네이밍은 원하는 대로 하셔도 됩니다)
+              // e 에서 필요한 것을 꺼내서 쓰면 됩니다.
+              // e.coord.lat() 는 위도 (Latitude)  보통 약어로 lat
+              // e.coord.lng() 는 경도 (Longitude) 보퉁 약어로 lng
+          });
+      }
+    </script> -->
   </body>
 </html>
