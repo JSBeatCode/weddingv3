@@ -14,11 +14,11 @@ export default {
         webList: Array
     },
     setup(props, {emit}) {
+        
         const state = reactive({
             webList: props.webList
         })
         const mapInit = () => {
-            // console.log('debug1', state.webList);
             const position = new naver.maps.LatLng(37.557523, 126.8018856);
 
             const mapOptions = {
@@ -62,29 +62,15 @@ export default {
                         anchorColor: "#eee",
                     });
 
-                    infoWindow.open(map, marker);
+                    // infoWindow.open(map, marker);
 
                     infoList.push(infoWindow)
-                    markerList.push(marker);
-                    // infoList.push({
-                    //     id: i,
-                    //     data: infoWindow
-                    // })
-                    // markerList.push({
-                    //     id: i,
-                    //     data: marker
-                    // });
-
-                    // naver.maps.Event.addListener(marker, 'click', getClickHandler(count))
-                    // count++;
+                    markerList.push(marker)
                 }
                 
             }
-            // console.log('debug2-1', markerList)
-            // console.log('debug2-2', infoList)
 
             for (var y=0; y<markerList.length; y++) {
-            //     console.log('debug2-3', markerList[i]);
                 naver.maps.Event.addListener(markerList[y], 'click', getClickHandler(y))
             }
 
@@ -100,15 +86,45 @@ export default {
                 }
             }
 
-            // getOverlay(position)
+            for(let c = 0; c < markerList.length; c++){
+                const marker = markerList[c];
+                getOverlay(map, marker.position, marker.title)
+            }
             
-            function getOverlay(mapPosition) {
+            
+        }
+
+        // 클릭이벤트를 적용하여 경고창으로 위도 경도를 봅니다.
+        // function getLatLang() {
+        //     naver.maps.Event.addListener(map, 'click', function (e) {
+        //         // 지도를 클릭하면 아래 내용이 실행됩니다.
+        //         alert(e.coord.lat() + ', ' + e.coord.lng());
+        //         // e 는 클릭시 넘어오는 이벤트 (네이밍은 원하는 대로 하셔도 됩니다)
+        //         // e 에서 필요한 것을 꺼내서 쓰면 됩니다.
+        //         // e.coord.lat() 는 위도 (Latitude)  보통 약어로 lat
+        //         // e.coord.lng() 는 경도 (Longitude) 보퉁 약어로 lng
+        //     });
+        // }
+
+        function getOverlay(map, mapPosition, title) {
                 /**
                  * 사용자 정의 오버레이 구현하기
                  */
                 var CustomOverlay = function (options) {
-                    this._element = ('<div style="position:absolute;left:0;top:0;width:120px;height:100px;line-height:30px;text-align:center;background-color:#fff;border:2px solid #f00;">커스텀오버레이</div>')
-
+                    
+                    // this._element = $('<div style="position:absolute;left:0;top:0;width:124px;background-color:#F2F0EA;text-align:center;border:2px solid #6C483B;">커스텀오버레이</div>')
+                    this._element = document.createElement('div')
+                    this._element.innerHTML = title;
+                    this._element.style.cssText = ("" + (
+                        "position:absolute;"
+                        +"left:0;"
+                        +"top:0;"
+                        +"width:124px;"
+                        +"background-color:#F2F0EA;"
+                        +"text-align:center;"
+                        +"border:2px solid #6C483B;"
+                        +"font-size:12px"
+                    ));
                     this.setPosition(options.position);
                     this.setMap(options.map || null);
                 };
@@ -117,40 +133,6 @@ export default {
                 CustomOverlay.prototype = new naver.maps.OverlayView();
 
                 CustomOverlay.prototype.constructor = CustomOverlay;
-
-                CustomOverlay.prototype.onAdd = function () {
-                    var overlayLayer = this.getPanes().overlayLayer;
-                    console.log('overlayLayer ', overlayLayer)
-                    overlayLayer = (overlayLayer += this._element)
-                    // overlayLayer = (this._element)
-
-                };
-
-                CustomOverlay.prototype.draw = function () {
-                    // 지도 객체가 설정되지 않았으면 draw 기능을 하지 않습니다.
-                    if (!this.getMap()) {
-                        return;
-                    }
-
-                    // projection 객체를 통해 LatLng 좌표를 화면 좌표로 변경합니다.
-                    var projection = this.getProjection(),
-                        position = this.getPosition();
-
-                    var pixelPosition = projection.fromCoordToOffset(position);
-
-                    // this._element.css('left', pixelPosition.x);
-                    // this._element.css('top', pixelPosition.y);
-                    // this.element.style.left = pixelPosition.x + 'px';
-                    // this.element.style.top = pixelPosition.y + 'px';
-                    console.log('debug1', this._element);
-                };
-
-                CustomOverlay.prototype.onRemove = function () {
-                    // this._element.remove();
-
-                    // // 이벤트 핸들러를 설정했다면 정리합니다.
-                    // this._element.off();
-                };
 
                 CustomOverlay.prototype.setPosition = function (position) {
                     this._position = position;
@@ -161,29 +143,48 @@ export default {
                     return this._position;
                 };
 
+                CustomOverlay.prototype.onAdd = function () {
+                    var overlayLayer = this.getPanes().overlayLayer;
+                    // console.log('overlayLayer ', overlayLayer)
+                    // this._element.appendTo(overlayLayer);
+                    overlayLayer.append(this._element);
+                    // console.log('overlayLayer ', overlayLayer)
+                };
+
+                CustomOverlay.prototype.draw = function () {
+                    // 지도 객체가 설정되지 않았으면 draw 기능을 하지 않습니다.
+                    if (!this.getMap()) {
+                        return;
+                    }
+
+
+                    // projection 객체를 통해 LatLng 좌표를 화면 좌표로 변경합니다.
+                    var projection = this.getProjection(),
+                        position = this.getPosition();
+
+                    var pixelPosition = projection.fromCoordToOffset(position);
+
+                    this._element.style.left = (pixelPosition.x - 60) + 'px';
+                    this._element.style.top = (pixelPosition.y - 65) + 'px';
+                };
+
+                CustomOverlay.prototype.onRemove = function () {
+                    var overlayLayer = this.getPanes().overlayLayer;
+
+                    this._element.remove();
+                    // // 이벤트 핸들러를 설정했다면 정리합니다.
+                    // this._element.off();
+                    this._element.removeEventListener('click', this.onClick);
+                };
+
                 // 오버레이 생성
                 var overlay = new CustomOverlay({
                     position: mapPosition,
                     map: map
                 });
-
-                overlay.onAdd();
+                // overlay.onAdd();
                 
             }
-
-            // 클릭이벤트를 적용하여 경고창으로 위도 경도를 봅니다.
-            // function getLatLang() {
-            //     naver.maps.Event.addListener(map, 'click', function (e) {
-            //         // 지도를 클릭하면 아래 내용이 실행됩니다.
-            //         alert(e.coord.lat() + ', ' + e.coord.lng());
-            //         // e 는 클릭시 넘어오는 이벤트 (네이밍은 원하는 대로 하셔도 됩니다)
-            //         // e 에서 필요한 것을 꺼내서 쓰면 됩니다.
-            //         // e.coord.lat() 는 위도 (Latitude)  보통 약어로 lat
-            //         // e.coord.lng() 는 경도 (Longitude) 보퉁 약어로 lng
-            //     });
-            // }
-            
-        }
 
         onMounted(() => {
             mapInit();

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div style="overflow: visible; width: 100%; height: 0px; position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; z-index: 101;">
+        <div style="position:absolute;left:0;top:0;width:124px;background-color:#F2F0EA;text-align:center;border:2px solid #6C483B;">커스텀오버레이</div>
+    </div> -->
+
+    <div id="blk">d</div>
+
+    <script>
+        var addDiv = document.createElement('div')
+        addDiv.innerText = 'test';
+
+        var blk = document.getElementById('blk')
+        addDiv.appendChild(blk);
+    </script>
+</body>
+</html>

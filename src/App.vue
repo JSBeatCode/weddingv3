@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <main id="scrollspyHeading1">
+  <main>
   <Header bride="SG" groom="SD" />
     <!-- <Intro /> -->
     <div class="album py-5 bg-light">
@@ -31,7 +31,7 @@ export default {
         <Main />
 
         <button class="btn btn-danger btn-sm" id="btn-back-to-top" >
-          <a href="#scrollspyHeading1" style="text-decoration-line:none; color:white">
+          <a href="#" style="text-decoration-line:none; color:white">
             TOP
           </a>
         </button>
