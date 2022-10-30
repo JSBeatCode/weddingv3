@@ -1,4 +1,6 @@
 <template>
+    <MapNv :webList="state.originList" />
+    <br>
     <SearchBar @funcSubmit="funcSubmit" />
     <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> -->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2 g-lg-3">
@@ -28,15 +30,17 @@
 </template>
 
 <script>
-import { ref, onMounted, reactive } from 'vue'
+import { ref, onMounted, reactive, onUpdated } from 'vue'
+import { webList } from '../../data'
 import Modal from './Modal.vue'
-import SearchBar from '../SearchBar.vue'
-import { webList  } from '../../data'
+import SearchBar from './SearchBar.vue'
+import MapNv from './MapNv.vue'
 
 export default {
     components: {
         Modal,
-        SearchBar
+        SearchBar,
+        MapNv
     },
     setup() {
         const state = reactive({
@@ -44,8 +48,9 @@ export default {
             mdImageList: [],
             mdName: 'Test',
             list: webList,
-            originList: webList
+            originList: webList,
         })
+
 
         const goToSite = (address) => {
             window.open(address)
@@ -76,14 +81,15 @@ export default {
         }
 
         onMounted(() => {
-            // state.list = webList;
+            // console.log('d1', webList)
         })
 
         return {
             state,
             goToSite,
             changeModalData,
-            funcSubmit
+            funcSubmit,
+            // modeValidation
         }
     }
 }

@@ -1,4 +1,4 @@
-export const webList = [
+const list = [
   {
     id: '1',
     name: '김포컨벤션웨딩홀',
@@ -110,7 +110,7 @@ export const webList = [
       'src/assets/halls/05/04.jpg',
       'src/assets/halls/05/05.jpg',
       'src/assets/halls/05/06.jpg'
-    ]
+    ],
   },
   {
     id: '6',
@@ -158,7 +158,9 @@ export const webList = [
       'src/assets/halls/07/04.jpg',
       'src/assets/halls/07/05.jpg',
       'src/assets/halls/07/06.jpg'
-    ]
+    ],
+    lat:'37.5670546',
+    lang:'126.8275382'
   },
   {
     id: '8',
@@ -230,7 +232,9 @@ export const webList = [
       'src/assets/halls/10/05.jpg',
       'src/assets/halls/10/06.jpg',
       'src/assets/halls/10/07.jpg'
-    ]
+    ],
+    lat: '37.535068',
+    lang: '126.9006928'
   },
   {
     id: '11',
@@ -280,7 +284,9 @@ export const webList = [
       'src/assets/halls/12/06.jpg',
       'src/assets/halls/12/07.jpg',
       'src/assets/halls/12/08.jpg'
-    ]
+    ],
+    lat:'37.5564301',
+    lang:'126.8369206'
   },
   {
     id: '13',
@@ -506,3 +512,18 @@ export const webList = [
     ]
   }
 ]
+
+const testMode = false;
+
+export const webList = list.map((a,i) => {
+  if(testMode === false) {
+    a.image =  a.image.replace('src/assets', 'assets');
+    a.imageList = a.imageList.map((v,o) => {
+      v = v.replace('src/assets', 'assets');
+      return v
+    });
+  }
+  return a;
+});
+
+export const markerImage = testMode === true ? 'src/assets/marker.png' : 'assets/marker.png'

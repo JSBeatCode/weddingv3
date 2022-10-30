@@ -1,13 +1,25 @@
-<script setup>
+<script>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 // import HelloWorld from './components/HelloWorld.vue'
-import Footer from './components/Footer.vue'
-import Header from './components/Header.vue'
+import Footer from './components/structure/Footer.vue'
+import Header from './components/structure/Header.vue'
 // import Intro from './components/Intro.vue'
-import Halls from './components/Halls/Halls.vue'
-import SearchBar from './components/SearchBar.vue'
+import Main from './components/main/Main.vue'
 
+export default {
+  components: {
+    Footer,
+    Header,
+    Main,
+  },
+  setup() {
+
+    return {
+
+    }
+  }
+}
 </script>
 
 <template>
@@ -16,7 +28,7 @@ import SearchBar from './components/SearchBar.vue'
     <!-- <Intro /> -->
     <div class="album py-5 bg-light">
       <div class="container">
-        <Halls />
+        <Main />
 
         <button class="btn btn-danger btn-sm" id="btn-back-to-top" >
           <a href="#scrollspyHeading1" style="text-decoration-line:none; color:white">
