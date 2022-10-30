@@ -7,18 +7,26 @@ import Header from './components/Header.vue'
 // import Intro from './components/Intro.vue'
 import Halls from './components/Halls/Halls.vue'
 import SearchBar from './components/SearchBar.vue'
+
 </script>
 
 <template>
-  <main>
-  <Header bride="SG" groom="SD"  />
+  <main id="scrollspyHeading1">
+  <Header bride="SG" groom="SD" />
     <!-- <Intro /> -->
     <div class="album py-5 bg-light">
       <div class="container">
         <Halls />
+
+        <button class="btn btn-danger btn-sm" id="btn-back-to-top" >
+          <a href="#scrollspyHeading1" style="text-decoration-line:none; color:white">
+            TOP
+          </a>
+        </button>
       </div>
     </div>
     <Footer />
+
   </main>
 
 </template>
@@ -36,5 +44,12 @@ import SearchBar from './components/SearchBar.vue'
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* display: none; */
 }
 </style>

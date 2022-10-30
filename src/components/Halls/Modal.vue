@@ -19,7 +19,9 @@
                         <div class="carousel-inner">
                             <div v-for="(one, index) in state.mdImageList" v-bind:key="one+'-'+state.mdName+'-'+state.mdId">
                                 <div :class="'carousel-item' + ' ' + (index === 0 ? 'active' : '')">
-                                    <img class="d-block w-100" :src="one" :alt="'wedding hall' + (index+1)" style="width:100%">
+                                    <span @click="$emit('goToSite', one)">
+                                        <img class="d-block w-100" :src="one" :alt="'wedding hall' + (index+1)" style="width:100%">
+                                    </span>
                                 </div>
                             </div>
                             <!-- <div class="carousel-item active">
@@ -37,10 +39,10 @@
                         </div>
                         
                         <!-- Left and right controls/icons -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <button id="carousel-control-prev" class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon"></span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <button id="carousel-control-next" class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
                             <span class="carousel-control-next-icon"></span>
                         </button>
                     </div>
@@ -61,10 +63,9 @@ export default {
     props: {
         mdImageList: Array,
         mdName: String,
-        mdId: String
+        mdId: String,
     },
     setup(props, {emit}) {
-        const imageList = ref([])
         const state = reactive({
             mdImageList: props.mdImageList,
             mdName: props.mdName,
@@ -72,9 +73,9 @@ export default {
         });
         
 
-        onMounted(() => {
+        // onMounted(() => {
 
-        })
+        // })
 
         onUpdated(() => {
             state.mdImageList = props.mdImageList;
@@ -85,10 +86,18 @@ export default {
         return {
             state,                    
         }
-    }
+    },
+    emits: [
+        'goToSite'
+    ]
 }
 </script>
 
 <style lang="scss" scoped>
-
+#carousel-control-next, #carousel-control-prev {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:45%
+}
 </style>

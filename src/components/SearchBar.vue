@@ -10,9 +10,9 @@
                     @input="onChange"
                     @keyup.enter="enterChange"
                 >
-            <!-- <div class="input-group-append">
-              <button class="btn btn-info" type="button">검색</button>
-            </div> -->
+                <div id="input-x" @click="delAllChange">
+                    X
+                </div>
           </div>
     </div>
 </template>
@@ -33,6 +33,11 @@ export default {
             state.txt = e.target.value;
             emit('funcSubmit', state.txt);
         }
+
+        const delAllChange = () => {
+            state.txt = '';
+            emit('funcSubmit', state.txt);
+        }
         // const enterChange = (e) => {
         //     let val = state.txt;
         //     emit('funcSubmit', val);
@@ -44,6 +49,7 @@ export default {
         return {
             state,
             onChange,
+            delAllChange,
             // enterChange
         }
     },
@@ -54,5 +60,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+#input-x {
+    cursor: pointer;
+    position:absolute;
+    right:2%;
+    top:15%;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    text-align: center;
+    z-index: 100;
+}
+#input-x:hover {
+    font-family: bold;
+}
 </style>

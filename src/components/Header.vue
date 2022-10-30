@@ -8,9 +8,9 @@
                       <p class="text-muted">사랑하는 저희 {{state.bride}} ♡ {{state.groom}} 커플을 축하해 주셔서 감사합니다.</p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
-                      <h4 class="text-white">웨딩날짜</h4>
+                      <h4 class="text-white">연락처</h4>
                       <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">2023-06-24</a></li>
+                        <li><a href="#" class="text-white">개인연락</a></li>
                       </ul>
                     </div>
                   </div>

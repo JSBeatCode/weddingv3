@@ -1,11 +1,14 @@
 <template>
     <SearchBar @funcSubmit="funcSubmit" />
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col" v-for="one in state.list" v-bind:key="state.list.id">
+    <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"> -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2 g-lg-3">
+        <div class="col" v-for="one in state.list" :key="state.list.id">
             <div class="card shadow-sm">
-                <img width="100%" height="225" :src="one.image" :alt="one.imageAlt" class="card-img-top">
+                <span data-bs-toggle="modal" data-bs-target="#myModal" @click="changeModalData(one.id, one.imageList, one.name)">
+                    <img width="100%" height="225" :src="one.image" :alt="one.imageAlt" class="card-img-top" >
+                </span>
                 <div class="card-body">
-                    <p class="card-text"><span style="font-weight:bold;color:blue;cursor:pointer;" @click="goToSite(one.picSrc)">{{one.name}}</span> | {{one.hall}}</p>
+                    <p class="card-text"><span style="font-weight:bold; color:blue; cursor:pointer;" @click="goToSite(one.picSrc)">{{one.name}}</span> | {{one.hall}}</p>
                     <p class="card-text">{{one.address}}</p>
                     <p class="card-text text-muted">￦{{(one.price).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}}</p>
                     <!-- <div class="text-center"> -->
@@ -21,27 +24,21 @@
             </div>
         </div>
     </div>
-    <Modal :mdImageList="state.mdImageList" :mdName="state.mdName" :mdId="state.mdId"/>
+    <Modal :mdImageList="state.mdImageList" :mdName="state.mdName" :mdId="state.mdId" @goToSite="goToSite" />
 </template>
 
 <script>
 import { ref, onMounted, reactive } from 'vue'
 import Modal from './Modal.vue'
 import SearchBar from '../SearchBar.vue'
-import { wedList as webList } from '../../data'
+import { webList  } from '../../data'
 
 export default {
     components: {
         Modal,
         SearchBar
     },
-    // props: {
-    //     mdId: String,
-    //     mdImageList: Array,
-    //     mdName: String
-    // },
     setup() {
-        // const list = ref(wedList);
         const state = reactive({
             mdId: '',
             mdImageList: [],
@@ -49,13 +46,8 @@ export default {
             list: webList,
             originList: webList
         })
-        // const mdId = ref('');
-        // const mdImageList = ref([]);
-        // const mdName = ref('');
 
         const goToSite = (address) => {
-            // console.log(address)
-            // location.href = address;
             window.open(address)
         }
 
