@@ -73,6 +73,8 @@ export const list = [
         id: '7', name: '보타닉파크웨딩', address: '서울 강서구 마곡중앙5로 6 ', hall: '오키드홀', price: '1425', picSrc: 'http://www.ihall.co.kr/info/info_detail?banquet_code=1482221198', naverScore: 4.84, kakaoScore: 3.5, naverSrc: 'https://map.naver.com/v5/search/%EB%B3%B4%ED%83%80%EB%8B%89%ED%8C%8C%ED%81%AC%EC%9B%A8%EB%94%A9/place/94306527?c=14117448.6109630,4518441.9547921,15,0,0,0,dh&placePath=%3Fentry%253Dbmp', kakaoSrc: 'https://place.map.kakao.com/1089036510', imageSrc: 'wedding hall7', image: 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4645_0_1662441323.jpg', imageList: ['http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4645_0_1662441323.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4645_5_1662106355.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4645_9_1662106355.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4645_6_1662106355.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4646_3_1662106416.jpg',
             'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4650_2_1662106787.jpg',
             'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4650_4_1662106787.jpg',],
+            lat:'37.5670546',
+            lang:'126.8275382'
     },
     {
         id: '8', name: '보타닉파크웨딩', address: '서울 강서구 마곡중앙5로 6 ', hall: '카라홀', price: '1425', picSrc: 'http://www.ihall.co.kr/info/info_detail?banquet_code=1482221198', naverScore: 4.84, kakaoScore: 3.5, naverSrc: 'https://map.naver.com/v5/search/%EB%B3%B4%ED%83%80%EB%8B%89%ED%8C%8C%ED%81%AC%EC%9B%A8%EB%94%A9/place/94306527?c=14117448.6109630,4518441.9547921,15,0,0,0,dh&placePath=%3Fentry%253Dbmp', kakaoSrc: 'https://place.map.kakao.com/1089036510', imageSrc: 'wedding hall8', image: 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4647_0_1662106492.jpg', imageList: ['http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4647_1_1662106492.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4647_3_1662106492.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4647_5_1662106492.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4647_7_1662106492.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1482221198/1482221198_img_4648_0_1662106536.jpg',
@@ -97,6 +99,8 @@ export const list = [
             'http://www.iwedding.co.kr/center/website/ihall_img/1318298275/1318298275_img_585_0_1425443685.jpg',
             'http://www.iwedding.co.kr/center/website/ihall_img/1318298275/1318298275_img_585_2_1425443685.jpg',
             'http://www.iwedding.co.kr/center/website/ihall_img/1318298275/1318298275_img_587_1_1425443757.jpg',],
+            lat: '37.535068',
+            lang: '126.9006928'
     },
     {
         id: '11', name: '그랜드컨벤션센터', address: '서울 영등포구 양평로 58 ', hall: '리젠시홀', price: '1500', picSrc: 'http://www.ihall.co.kr/info/info_detail?banquet_code=1318298275', naverScore: 4.38, kakaoScore: 3.3, naverSrc: 'https://map.naver.com/v5/search/%EA%B7%B8%EB%9E%9C%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98%EC%84%BC%ED%84%B0/place/20352298?c=14125587.7689282,4513955.5493830,15,0,0,0,dh&placePath=%3Fentry%253Dbmp', kakaoSrc: 'https://place.map.kakao.com/15292647', imageSrc: 'wedding hall11', image: 'http://www.iwedding.co.kr/center/website/ihall_img/1318298275/1318298275_img_576_3_1603855641.jpg', imageList: ['http://www.iwedding.co.kr/center/website/ihall_img/1318298275/1318298275_img_576_2_1603855641.jpg',
@@ -116,6 +120,8 @@ export const list = [
             'http://www.iwedding.co.kr/center/website/ihall_img/1412230766/1412230766_img_801_6_1600847482.jpg',
             'http://www.iwedding.co.kr/center/website/ihall_img/1412230766/1412230766_img_803_1_1612932032.jpg',
             'http://www.iwedding.co.kr/center/website/ihall_img/1412230766/1412230766_img_5565_0_1612932214.jpg', 'http://www.iwedding.co.kr/center/website/ihall_img/1412230766/1412230766_img_5566_0_1612932261.jpg',],
+            lat:'37.5564301',
+            lang:'126.8369206'
     },
     {
         id: '13', name: '더뉴컨벤션웨딩', address: '서울 강서구 공항대로36길 57 ', hall: '르노브홀', price: '1405', picSrc: 'http://www.ihall.co.kr/info/info_detail?banquet_code=1412230766', naverScore: 4.53, kakaoScore: 3.1, naverSrc: 'https://map.naver.com/v5/search/%EB%8D%94%EB%89%B4%EC%BB%A8%EB%B2%A4%EC%85%98%EC%9B%A8%EB%94%A9/place/35751363?c=14118489.5372575,4516954.0425790,15,0,0,0,dh&isCorrectAnswer=true', kakaoSrc: 'https://place.map.kakao.com/26314220', imageSrc: 'wedding hall13', image: 'http://www.iwedding.co.kr/center/website/ihall_img/1412230766/1412230766_img_5499_9_1619761271.jpg', imageList: ['http://www.iwedding.co.kr/center/website/ihall_img/1412230766/1412230766_img_5499_9_1619761271.jpg',
